@@ -1,0 +1,32 @@
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+      <div class="col-md-6 mx-auto">  
+        <div class="card mx-4">  
+          <div class="card-body p-4">  
+            <!--<form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)"> -->
+            <form name="form" (ngSubmit)="onFormSubmit()" #f="ngForm">  
+              <h1 style="text-align:center">Register</h1>  
+            
+              <div class="input-group mb-3">  
+               
+                <input type="text" class="form-control" [(ngModel)]="model.Name" placeholder="Name"  name="Name">  
+              </div>  
+              <div class="input-group mb-3">  
+                <input type="text" class="form-control" [(ngModel)]="model.UserName" placeholder="UserName"  name="UserName" required>  
+              </div>  
+              <div class="input-group mb-3">  
+                <input type="password" class="form-control" [(ngModel)]="model.Password" placeholder="Password"  name="Password">  
+              </div>  
+              <!-- <div class="input-group mb-3">  
+                  <input type="password" class="form-control" [(ngModel)]="model.Password" placeholder="Confirm Password"  name="ConfirmPassword">  
+                </div>   -->
+              <div class="input-group mb-4">  
+                <input type="text" class="form-control" placeholder="Email" [(ngModel)]="model.Email"  name="Email">  
+              </div>  
+              <button type="submit" class="btn btn-block btn-success">Register User</button>  
+            </form>  
+          </div>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  

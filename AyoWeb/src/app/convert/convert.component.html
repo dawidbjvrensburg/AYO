@@ -1,0 +1,66 @@
+<div class="container" style="padding-top:40px;">  
+    <div class="row">  
+        <div class="col-md-6 mx-auto">    
+            <!--<form [formGroup]="userForm" (ngSubmit)="onFormSubmit(userForm.value)"> -->
+            <form name="form" (ngSubmit)="onFormSubmit()" #f="ngForm">  
+                <h1 style="text-align:center">Convert</h1>  
+            
+                <div class="row" style="text-align: center">
+                    <div class="col-md-12 convert-field">  
+                        <label class="convert-font" style="padding-right: 3em">Metric -> Imperial</label>
+                            <label class="switch">
+                                <input id="chkMI" name="from" [ngModel]="model.IsImperial=='true'?true:false" (ngModelChange)="model.IsImperial=$event?'true':'false'" type="checkbox" onchange="switchType()">
+                                <span class="slider round"></span>
+                            </label>
+                        <label class="convert-font" style="padding-left: 3em">Imperial -> Metric</label>
+                    </div>
+                </div>  
+                <div class="row">
+                    <div class="col-md-12 convert-field">  
+                        <label>Metric Unit: </label><br>
+                        <select class="form-control" name="metricUnit" [ngModel]="model.MetricUnit" (ngModelChange)="model.MetricUnit=$event">
+                            <option value="millimeter" [selected]=true>Millimeter</option>
+                            <option value="centimeter">Centimeter</option>
+                            <option value="meter">Meter</option>
+                            <option value="kilometer">Kilometer</option>
+                            <option value="celcius">Celcius</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 convert-field">  
+                        <label>Imperial Unit: </label><br>
+                        <select class="form-control" name="imperialUnit" [ngModel]="model.ImperialUnit" (ngModelChange)="model.ImperialUnit=$event">
+                            <option value="inches" [selected]=true>Inches</option>
+                            <option value="feet">Feet</option>
+                            <option value="yards">Yards</option>
+                            <option value="miles">Miles</option>
+                            <option value="farenheit">Farenheit</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 convert-field">  
+                        <label>Value: </label><br>
+                        <input type="number" class="form-control" [(ngModel)]="model.UnitValue" placeholder="Value"  name="unitValue">  
+                    </div>
+                    <div class="col-md-6">  
+                        <br>
+                        <br>
+                        <p style="color:#000000;font-size:20px;font-weight:bolder" class="success">  
+                            = {{message}}  
+                        </p>  
+                    </div> 
+                </div>
+                <div class="row">
+                        <div class="col-md-12 convert-field">  
+                        <button type="submit" class="btn btn-block btn-success">Convert</button>  
+                    </div>
+                </div>
+            </form>  
+        </div>   
+    </div>  
+</div> 
+<script>
+    
+</script>
