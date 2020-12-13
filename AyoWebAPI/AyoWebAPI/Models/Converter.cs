@@ -225,7 +225,7 @@ namespace AyoWebAPI.Models
                         break;
                 }
             }
-            else if (c.FromUnit == "celcius")
+            else if (c.FromUnit == "farenheit")
             {
                 Celcius.ToF(c, true);
             }

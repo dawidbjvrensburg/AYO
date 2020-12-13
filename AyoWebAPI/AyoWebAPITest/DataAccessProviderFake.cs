@@ -15,7 +15,7 @@ namespace AyoWebAPITest
         public DataAccessProviderFake()
         {
             _users = new List<User>() {
-                 new User() { Email = "fakeemail@fake.com", ID = 999999, Name = "Fake", Password = "fakepassword", UserName = "fakeusername" }
+                 new User() { Email = "fakeemail@fake.com", ID = 999999, Name = "Fake", Password = "fakepassword", UserName = "fakeusername" } 
             };
             _converters = new List<Converter>() {
                 new Converter(){From ="FakeFrom", To="FakeTo", ID=999999, FromUnit="FakeFromUnit", ToUnit="FakeToUnit", RequestDate=DateTime.Now, Result=9999999.9999999, UnitValue="FakeUnitValue"}
