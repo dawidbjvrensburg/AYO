@@ -6,7 +6,7 @@ import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angula
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Convert } from '../convert';
-import * as $ from 'jquery';
+//import * as $ from 'jquery';
 
 declare var jQuery : any;
 
@@ -23,7 +23,7 @@ export class ConvertComponent implements OnInit {
 
   ngOnInit(){
 
-    $(document).ready(function(){
+    //$(document).ready(function(){
       // $('#cmbType').change(function(e){
       //   if($('#cmbType').val() == "length")
       //   {
@@ -54,7 +54,7 @@ export class ConvertComponent implements OnInit {
       //    }
       //  })
       
-    });
+    //});
     // Validation //
 
     

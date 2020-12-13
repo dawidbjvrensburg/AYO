@@ -14,7 +14,7 @@ export class LoginService {
   //token : string;  
   header : any;  
   constructor(private http : HttpClient) {
-    this.Url = environment.apiEndpoint;  
+    this.Url = 'https://localhost:44341/api/';  
     const headerSettings: {[name: string]: string | string[]; } = {};  
     this.header = new HttpHeaders(headerSettings); 
   }
