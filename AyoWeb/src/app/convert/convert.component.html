@@ -14,31 +14,60 @@
                             </label>
                         <label class="convert-font" style="padding-left: 3em">Imperial -> Metric</label>
                     </div>
-                </div>  
-                <div class="row">
+                </div>
+                <!-- <div class="row">
                     <div class="col-md-12 convert-field">  
-                        <label>Metric Unit: </label><br>
-                        <select class="form-control" name="metricUnit" [ngModel]="model.MetricUnit" (ngModelChange)="model.MetricUnit=$event">
-                            <option value="millimeter" [selected]=true>Millimeter</option>
-                            <option value="centimeter">Centimeter</option>
-                            <option value="meter">Meter</option>
-                            <option value="kilometer">Kilometer</option>
-                            <option value="celcius">Celcius</option>
+                        <label>Type: </label><br>
+                        <select id="cmbType" ng class="form-control" name="typeUnit" >
+                            <option value="length" [selected]=true>Length</option>
+                            <option value="temperature">Temperature</option>
                         </select>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 convert-field">  
-                        <label>Imperial Unit: </label><br>
-                        <select class="form-control" name="imperialUnit" [ngModel]="model.ImperialUnit" (ngModelChange)="model.ImperialUnit=$event">
-                            <option value="inches" [selected]=true>Inches</option>
-                            <option value="feet">Feet</option>
-                            <option value="yards">Yards</option>
-                            <option value="miles">Miles</option>
-                            <option value="farenheit">Farenheit</option>
-                        </select>
+                </div>   -->
+                <div id="divLengthPanel">
+                    <div class="row">
+                        <div class="col-md-12 convert-field">  
+                            <label>Metric Unit: </label><br>
+                            <select id="cmbMetric" class="form-control" name="metricUnit" (change)="changeTypeMetric()" [ngModel]="model.MetricUnit" (ngModelChange)="model.MetricUnit=$event">
+                                <option value="millimeter" [selected]=true>Millimeter</option>
+                                <option value="centimeter">Centimeter</option>
+                                <option value="meter">Meter</option>
+                                <option value="kilometer">Kilometer</option>
+                                <option value="celcius">Celcius</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 convert-field">  
+                            <label>Imperial Unit: </label><br>
+                            <select id="cmbImperial" class="form-control" name="imperialUnit" (change)="changeTypeImperial()" [ngModel]="model.ImperialUnit" (ngModelChange)="model.ImperialUnit=$event">
+                                <option value="inches" [selected]=true>Inches</option>
+                                <option value="feet">Feet</option>
+                                <option value="yards">Yards</option>
+                                <option value="miles">Miles</option>
+                                <option value="farenheit">Farenheit</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <!-- <div id="divTemperaturePanel" style="display: none">
+                    <div class="row">
+                        <div class="col-md-12 convert-field">  
+                            <label>Metric Unit: </label><br>
+                            <select id="cmbMetric" class="form-control" name="metricUnit" [ngModel]="model.MetricUnit" (ngModelChange)="model.MetricUnit=$event">
+                                <option value="celcius" [selected]=true>Celcius</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 convert-field">  
+                            <label>Imperial Unit: </label><br>
+                            <select id="cmbImperial" class="form-control" name="imperialUnit" [ngModel]="model.ImperialUnit" (ngModelChange)="model.ImperialUnit=$event">
+                                <option value="farenheit" [selected]=true>Farenheit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="row">
                     <div class="col-md-6 convert-field">  
                         <label>Value: </label><br>

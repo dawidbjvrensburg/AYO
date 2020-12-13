@@ -6,6 +6,7 @@ import { NgForm, FormBuilder, FormGroup, Validators, FormControl } from '@angula
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Convert } from '../convert';
+import * as $ from 'jquery';
 
 declare var jQuery : any;
 
@@ -22,8 +23,57 @@ export class ConvertComponent implements OnInit {
 
   ngOnInit(){
 
-    
+    $(document).ready(function(){
+      // $('#cmbType').change(function(e){
+      //   if($('#cmbType').val() == "length")
+      //   {
+      //     $('#divLengthPanel').show();
+      //     $('#divTemperaturePanel').hide();
+      //   }
+      //   else{
+      //     $('#divLengthPanel').hide();
+      //     $('#divTemperaturePanel').show();
+      //   }
+      // })
+
+
+      //  $('#cmbMetric').change(function(e){
+      //    if($('#cmbMetric').val() == 'celcius')
+      //    {
+      //      $('#cmbImperial').val('farenheit');
+      //      //$('#cmbImperial').change();
+      //      //$('#cmbMetric').val('celcius');
+      //    }
+      //  })
+
+      //  $('#cmbImperial').change(function(e){
+      //    if($('#cmbImperial').val() == 'farenheit')
+      //    {
+      //      $('#cmbMetric').val('celcius');
+      //      //$('#cmbImperial').val('farenheit');
+      //    }
+      //  })
+      
+    });
     // Validation //
+
+    
+  }
+
+  changeTypeImperial(){
+    const cvrt = this.model;
+    if(this.model.ImperialUnit == "farenheit")
+    {
+      this.model.MetricUnit = "celcius";
+    }
+  }
+
+  changeTypeMetric(){
+    const cvrt = this.model;
+    if(this.model.MetricUnit == "celcius")
+    {
+      this.model.ImperialUnit = "farenheit";
+    }
   }
 
   onFormSubmit(){
@@ -39,19 +89,29 @@ export class ConvertComponent implements OnInit {
     }
     else
     {
-    this.ConverterService.Convert(convert).subscribe(    
-    data =>    
-    {    
-      if(data.status == "Fail")
+      if(this.model.MetricUnit == "celcius" && this.model.ImperialUnit != "farenheit")
       {
-        this.toastr.error('An error occured: '+ data.message, 'Error');
+        this.toastr.warning("Please ensure that both Metric and Imperial Unit is of either Distance or Temperature type");
+        return;
       }
-      else
+      else if(this.model.ImperialUnit == "farenheit" && this.model.MetricUnit != "celcius")
       {
-         this.message = data.message;   
+        this.toastr.warning("Please ensure that both Metric and Imperial Unit is of either Distance or Temperature type");
+        return;
       }
-      //this.convertForm.reset();    
-    });    
-  } 
-}
+      this.ConverterService.Convert(convert).subscribe(    
+      data =>    
+      {    
+        if(data.status == "Fail")
+        {
+          this.toastr.error('An error occured: '+ data.message, 'Error');
+        }
+        else
+        {
+          this.message = data.message;   
+        }
+        //this.convertForm.reset();    
+      });    
+    } 
+  }
 }
