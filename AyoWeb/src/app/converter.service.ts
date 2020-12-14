@@ -15,7 +15,7 @@ export class ConverterService {
   //token : string;  
   header : any;  
   constructor(private http : HttpClient) {
-    this.Url = 'https://localhost:44341/api/';  
+    this.Url = environment.apiEndpoint;  
     const headerSettings: {[name: string]: string | string[]; } = {};  
     this.header = new HttpHeaders(headerSettings); 
   }
